@@ -1,2 +1,2 @@
-# nextjs-saas-ecommerce-platform
-Saas e-commerce platform built with Nextjs
+# nextjs-saas-ecommerce-admin
+Saas e-commerce admin to manage the platform built with Nextjs
