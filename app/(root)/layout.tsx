@@ -17,6 +17,7 @@ const SetupLayout = async ({ children }: { children: React.ReactNode }) => {
 
   if (store) {
     redirect(`/${store.id}`);
+    //TODO: test if router.push can be used here
   }
 
   return <>{children}</>;

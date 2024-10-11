@@ -40,12 +40,12 @@ export default function RootLayout({
         >
           <ToasterProvider />
           <ModalProvider />
-          <SignedOut>
+          {/* <SignedOut>
             <SignInButton />
           </SignedOut>
           <SignedIn>
             <UserButton />
-          </SignedIn>
+          </SignedIn> */}
           {children}
         </body>
       </html>

@@ -40,7 +40,8 @@ export const StoreModal = () => {
     try {
       setLoading(true);
       const response = await axios.post("/api/stores", values);
-      toast.success("Store created");
+      window.location.assign(`/${response.data.id}`);
+      //TODO: test if router.push + router.refresh? can be used here
     } catch (error) {
       toast.error("Failed to create store");
       console.log(error);
