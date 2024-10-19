@@ -45,7 +45,9 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
 
   const title = initialData ? "Edit Billboard" : "Create Billboard";
   const description = initialData ? "Edit a billboard" : "Add a new billboard";
-  const toasMessage = initialData ? "Billboard updated." : "Billboard created.";
+  const toastMessage = initialData
+    ? "Billboard updated."
+    : "Billboard created.";
   const action = initialData ? "Save changes" : "Create";
 
   const form = useForm<BillboardFormValues>({
@@ -59,9 +61,17 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
   const onSubmit = async (data: BillboardFormValues) => {
     try {
       setLoading(true);
-      await axios.patch(`/api/stores/${params.storeId}`, data);
+      if (initialData) {
+        await axios.patch(
+          `/api/${params.storeId}/billboards/${params.billboardId}`,
+          data
+        );
+      } else {
+        await axios.post(`/api/${params.storeId}/billboards`, data);
+      }
+
       router.refresh();
-      toast.success("Store updated");
+      toast.success(toastMessage);
     } catch (error) {
       toast.error("Something went wrong");
     } finally {
@@ -72,12 +82,16 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
   const onDelete = async () => {
     try {
       setLoading(true);
-      await axios.delete(`/api/stores/${params.storeId}`);
+      await axios.delete(
+        `/api/${params.storeId}/billboards/${params.billboardId}`
+      );
       router.refresh();
       router.push("/");
-      toast.success("Store deleted");
+      toast.success("Billboard deleted.");
     } catch (error) {
-      toast.error("Make sure you removed all products and categories first.");
+      toast.error(
+        "Make sure you removed all categories using this billboard first."
+      );
     } finally {
       setLoading(false);
       setOpen(false);
@@ -119,7 +133,8 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
                 <FormLabel>Background image</FormLabel>
                 <FormControl>
                   <ImageUpload
-                    value={field.value ? [field.value] : []}
+                    // value={field.value ? [field.value] : []}
+                    value={[field.value]}
                     disabled={loading}
                     onChange={(url) => field.onChange(url)}
                     onRemove={() => field.onChange("")}
