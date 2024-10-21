@@ -49,7 +49,13 @@ const ImageUpload = ({
                 <Trash className="h-4 w-4" />
               </Button>
             </div>
-            <Image fill className="object-cover" src={url} alt="Image" />
+            <Image
+              width={500}
+              height={500}
+              className="object-cover"
+              src={url}
+              alt="Image"
+            />
           </div>
         ))}
       </div>
