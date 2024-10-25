@@ -39,7 +39,6 @@ type BillboardFormValues = z.infer<typeof formSchema>;
 const BillboardForm = ({ initialData }: BillboardFormProps) => {
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
