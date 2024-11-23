@@ -10,10 +10,6 @@ import { useRouter } from "next/navigation";
 import { BillboardColumn, columns } from "./columns";
 import ApiList from "@/components/ui/api-list";
 import { DataTable } from "@/components/ui/data-table";
-import dynamic from "next/dynamic";
-
-// const DataTable = dynamic(() => import("@/components/ui/data-table"), { ssr: false });
-// const DataTable = React.lazy(() => import('@/components/ui/data-table'));
 
 interface BillboardsPageProps {
   billboards: BillboardColumn[];

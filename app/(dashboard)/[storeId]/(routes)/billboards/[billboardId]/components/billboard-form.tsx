@@ -133,8 +133,7 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
                 <FormLabel>Background image</FormLabel>
                 <FormControl>
                   <ImageUpload
-                    // value={field.value ? [field.value] : []}
-                    value={[field.value]}
+                    value={field.value ? [field.value] : []}
                     disabled={loading}
                     onChange={(url) => field.onChange(url)}
                     onRemove={() => field.onChange("")}
