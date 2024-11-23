@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Heading from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
@@ -7,8 +8,12 @@ import { Plus } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { BillboardColumn, columns } from "./columns";
-import { DataTable } from "@/components/ui/data-table";
 import ApiList from "@/components/ui/api-list";
+import { DataTable } from "@/components/ui/data-table";
+import dynamic from "next/dynamic";
+
+// const DataTable = dynamic(() => import("@/components/ui/data-table"), { ssr: false });
+// const DataTable = React.lazy(() => import('@/components/ui/data-table'));
 
 interface BillboardsPageProps {
   billboards: BillboardColumn[];
@@ -17,6 +22,13 @@ interface BillboardsPageProps {
 const BillboardClient = ({ billboards }: BillboardsPageProps) => {
   const router = useRouter();
   const params = useParams();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <>
