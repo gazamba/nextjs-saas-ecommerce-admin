@@ -72,9 +72,8 @@ const CategoryForm = ({ initialData, billboards }: CategoryFormProps) => {
       } else {
         await axios.post(`/api/${params.storeId}/categories`, data);
       }
-
-      router.refresh();
       router.push(`/${params.storeId}/categories`);
+      router.refresh();
       toast.success(toastMessage);
     } catch (error) {
       toast.error("Something went wrong");
@@ -93,7 +92,7 @@ const CategoryForm = ({ initialData, billboards }: CategoryFormProps) => {
       router.push(`/${params.storeId}/categories`);
       toast.success("Category deleted.");
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Make sure you removed all products from this category.");
     } finally {
       setLoading(false);
       setOpen(false);

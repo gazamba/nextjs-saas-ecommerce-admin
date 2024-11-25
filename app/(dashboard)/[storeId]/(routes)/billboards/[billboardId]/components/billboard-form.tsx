@@ -89,9 +89,7 @@ const BillboardForm = ({ initialData }: BillboardFormProps) => {
       router.push(`/${params.storeId}/billboards`);
       toast.success("Billboard deleted.");
     } catch (error) {
-      toast.error(
-        "Make sure you removed all categories using this billboard first."
-      );
+      toast.error("Make sure you removed all categories from this billboard.");
     } finally {
       setLoading(false);
       setOpen(false);
