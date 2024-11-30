@@ -12,10 +12,10 @@ import ApiList from "@/components/ui/api-list";
 import { DataTable } from "@/components/ui/data-table";
 
 interface SizesPageProps {
-  billboards: SizeColumn[];
+  sizes: SizeColumn[];
 }
 
-const SizesClient = ({ billboards: sizes }: SizesPageProps) => {
+const SizesClient = ({ sizes }: SizesPageProps) => {
   const router = useRouter();
   const params = useParams();
   const [isMounted, setIsMounted] = useState(false);
