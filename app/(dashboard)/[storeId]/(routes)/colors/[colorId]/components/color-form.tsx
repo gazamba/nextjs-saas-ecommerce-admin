@@ -29,7 +29,7 @@ interface ColorFormProps {
 
 const formSchema = z.object({
   name: z.string().min(1),
-  value: z.string().min(1).regex(/ˆ#/, {
+  value: z.string().min(1).regex(/^#/, {
     message: "String must be a valid hex code",
   }),
 });
@@ -151,7 +151,7 @@ const ColorForm = ({ initialData }: ColorFormProps) => {
                         {...field}
                       />
                       <div
-                        className="border p=4 rounded-full"
+                        className="border p-4 rounded-full"
                         style={{ backgroundColor: field.value }}
                       />
                     </div>
