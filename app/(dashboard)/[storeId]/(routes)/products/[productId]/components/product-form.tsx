@@ -77,12 +77,20 @@ const ProductForm = ({
     resolver: zodResolver(formSchema),
     defaultValues: initialData
       ? {
-          price: parseFloat(String(initialData?.price)),
+          // price: parseFloat(String(initialData?.price)),
+          name: initialData.name,
+          images: initialData.images.map((image) => ({ url: image.url })), // Ensure images defaults to an empty array
+          price: Number(initialData.price),
+          categoryId: initialData.categoryId,
+          colorId: initialData.colorId,
+          sizeId: initialData.sizeId,
+          isFeatured: initialData.isFeatured,
+          isArchived: initialData.isArchived,
         }
       : {
           name: "",
           images: [],
-          // price: 0,
+          price: 0,
           categoryId: "",
           colorId: "",
           sizeId: "",
@@ -161,17 +169,18 @@ const ProductForm = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Images</FormLabel>
-                {field.value.map((image) => image.url + 1)}
                 <FormControl>
                   <ImageUpload
-                    value={field.value.map((image) => image.url)} // TODO: Fix this later as it's not returning 2 img urls or more..
+                    value={(field.value || []).map((image) => image.url)} // Default to an empty array
                     disabled={loading}
                     onChange={(url) =>
-                      field.onChange([...field.value, { url }])
+                      field.onChange([...(field.value || []), { url }])
                     }
                     onRemove={(url) =>
                       field.onChange(
-                        field.value.filter((current) => current.url !== url)
+                        (field.value || []).filter(
+                          (current) => current.url !== url
+                        )
                       )
                     }
                   />
