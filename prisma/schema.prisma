@@ -31,6 +31,8 @@ model Billboard {
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
   store      Store      @relation("StoreToBillboard", fields: [storeId], references: [id])
+
+  @@index([storeId])
 }
 
 model Category {
@@ -85,6 +87,11 @@ model Product {
   orderItems OrderItem[]
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
+
+  @@index([storeId])
+  @@index([categoryId])
+  @@index([sizeId])
+  @@index([colorId])
 }
 
 model Image {
@@ -94,6 +101,8 @@ model Image {
   url       String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([productId])
 }
 
 model Order {
@@ -106,6 +115,8 @@ model Order {
   address    String      @default("")
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
+
+  @@index([storeId])
 }
 
 model OrderItem {
