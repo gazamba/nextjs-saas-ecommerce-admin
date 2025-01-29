@@ -1,5 +1,5 @@
 # SaaS Ecommerce Platform Admin build with Next.js.
-Admin page to manage the [SaaS Ecommerce Store]("https://github.com/gazamba/nextjs-saas-ecommerce-store/tree/main")
+Admin page to manage the [SaaS Ecommerce Store](https://github.com/gazamba/nextjs-saas-ecommerce-store/tree/main)
 
 <PEDING LINK FROM VERCEL DEPLOY APP>
 
