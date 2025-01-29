@@ -5,7 +5,7 @@ Admin page to manage the [SaaS Ecommerce Store](https://github.com/gazamba/nextj
 
 ## 📷 Image preview
 
-<PENDING SNAPSHOT FROM APP>
+![Screenshot 2025-01-29 at 10 40 47](https://github.com/user-attachments/assets/c58236ba-d932-4695-90e7-13b4c04a08d6)
 
 ## 🚀 Running Local
 
