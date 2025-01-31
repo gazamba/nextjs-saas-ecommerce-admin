@@ -1,6 +1,5 @@
 import prismadb from "@/lib/prismadb";
 import React from "react";
-import BillboardClient from "../components/billboard-client";
 import BillboardForm from "./components/billboard-form";
 
 const BillboardPage = async ({

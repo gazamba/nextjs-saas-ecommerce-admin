@@ -1,7 +1,6 @@
 import prismadb from "@/lib/prismadb";
 import React from "react";
-import OrderClient from "../components/order-client";
-import BillboardForm from "./components/billboard-form";
+import BillboardForm from "@/app/(dashboard)/[storeId]/(routes)/billboards/[billboardId]/components/billboard-form";
 
 const BillboardPage = async ({
   params,
